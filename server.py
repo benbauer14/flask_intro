@@ -1,3 +1,4 @@
+from os import name
 from flask import Flask
 import time
 app = Flask(__name__)
@@ -41,3 +42,15 @@ def greet(name):
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+class User:
+    def __init__(self):
+        self.name = name
+        self.is_logged_in = False
+
+def create_blog_post(user):
+    print(f"This is {user.name}'s new blog post.")
+
+newUser = User("Ben")
+
+create_blog_post(newUser)
